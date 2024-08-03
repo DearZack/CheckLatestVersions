@@ -2,7 +2,7 @@ name: Check and Update Versions
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # 每5分钟运行一次
+    - cron: '*/10 * * * *' # 每10分钟运行一次
   push:
     paths:
       - '.github/workflows/CheckVersion.yml'  # 监听工作流程文件的变动
