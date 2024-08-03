@@ -15,6 +15,9 @@ jobs:
     - name: Install jq
       run: sudo apt-get update && sudo apt-get install -y jq
 
+    - name: Log message
+      run: echo "This is a log message"
+
     - name: Get and compare versions
       run: |
         # 读取旧版本文件
