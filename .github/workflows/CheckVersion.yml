@@ -38,6 +38,7 @@ jobs:
         changes=""
 
         # 逐行读取 repos.txt
+        index=1
         while IFS= read -r repo; do
           echo "Checking latest version for $repo"
           response=$(curl -s https://api.github.com/repos/$repo/releases/latest)
@@ -52,7 +53,8 @@ jobs:
           # 检查旧版本是否存在且一致
           if ! echo "$old_versions" | grep -q "$new_version"; then
             updated=true
-            changes+="$new_version_link<br>"
+            changes+="$index. $new_version_link<br>"
+            index=$((index + 1))
           fi
         done < repos.txt
 
@@ -68,7 +70,7 @@ jobs:
           git push
 
           # 发送通知到钉钉
-          content="# 新版本更新<br> $(echo -e "$changes")"
+          content="# 新版本更新\n\n $(echo -e "$changes")"
           param1=$(jq -n --arg text "$content" '{"msgtype":"markdown", "markdown": {"title":"更新","text":$text},"at": {"isAtAll": false}}')
           echo "$param1"
           curl -X POST "https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.ACCESS_TOKEN }}" \
