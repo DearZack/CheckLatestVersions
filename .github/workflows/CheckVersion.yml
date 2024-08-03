@@ -5,7 +5,7 @@ on:
     - cron: '0 0 * * *' # 每天运行一次（UTC时间00:00）
   push:
     paths:
-      - '.github/workflows/CheckVersion.yml'  # 监听文件的变动
+      - 'repos.txt'  # 监听 repos.txt 文件的变动
   workflow_dispatch: # 手动触发工作流程
 
 jobs:
@@ -15,12 +15,11 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PAT }}  # 使用个人访问令牌进行身份验证
 
     - name: Install jq
       run: sudo apt-get update && sudo apt-get install -y jq
-
-    - name: Log message
-      run: echo "This is a log message"
 
     - name: Get and compare versions
       run: |
