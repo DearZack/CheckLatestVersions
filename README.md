@@ -1,1 +1,3 @@
-# CheckLatestVersions
+# CheckLatestVersions## Versions
+
+1. [alist-org/alist:v3.36.0](https://github.com/alist-org/alist/releases/tag/v3.36.0)<br>2. [GopeedLab/gopeed:v1.5.7](https://github.com/GopeedLab/gopeed/releases/tag/v1.5.7)<br>3. [siyuan-note/siyuan:v3.1.2](https://github.com/siyuan-note/siyuan/releases/tag/v3.1.2)<br>4. [hiddify/hiddify-next:v2.0.5](https://github.com/hiddify/hiddify-next/releases/tag/v2.0.5)<br>5. [localsend/localsend:v1.15.3](https://github.com/localsend/localsend/releases/tag/v1.15.3)<br>6. [gkd-kit/gkd:v1.8.0-beta.8](https://github.com/gkd-kit/gkd/releases/tag/v1.8.0-beta.8)<br>7. [syncthing/syncthing:v1.27.9](https://github.com/syncthing/syncthing/releases/tag/v1.27.9)<br>8. [syncthing/syncthing-android:1.27.6](https://github.com/syncthing/syncthing-android/releases/tag/1.27.6)<br>9. [cloud-fs/cloud-fs.github.io:v0.7.10](https://github.com/cloud-fs/cloud-fs.github.io/releases/tag/v0.7.10)<br>
