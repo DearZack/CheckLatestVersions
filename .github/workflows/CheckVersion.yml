@@ -2,7 +2,7 @@ name: Check and Update Versions
 
 on:
   schedule:
-    - cron: '0 * * * *' # 每天运行一次（UTC时间00:00）
+    - cron: '0 * * * *' # 每小时运行一次
   push:
     paths:
       - '.github/workflows/CheckVersion.yml'  # 监听工作流程文件的变动
@@ -25,8 +25,8 @@ jobs:
     - name: Get and compare versions
       run: |
         # 读取旧版本文件
-        if [ -f version ]; then
-          old_versions=$(cat version)
+        if grep -q "## Versions" README.md; then
+          old_versions=$(grep "## Versions" -A 100 README.md | tail -n +2)
         else
           old_versions=""
         fi
@@ -35,7 +35,7 @@ jobs:
         new_versions_file=$(mktemp)
 
         updated=false
-        changes=""
+        changes="## Versions\n\n"
 
         # 逐行读取 repos.txt
         index=1
@@ -59,18 +59,19 @@ jobs:
         done < repos.txt
 
         if [ "$updated" = true ]; then
-          # 将新版本文件保存到 version 文件
-          mv "$new_versions_file" version
+          # 将新版本写入 README.md
+          sed -i "/## Versions/,\$d" README.md
+          echo -e "$changes" >> README.md
 
           # 提交并推送更改
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add version
-          git commit -m "Update version file with latest versions"
+          git add README.md
+          git commit -m "Update README.md with latest versions"
           git push
 
           # 发送通知到钉钉
-          content="# 新版本更新<br> $(echo -e "$changes")"
+          content="# 新版本更新<br>$(echo -e "$changes")"
           param1=$(jq -n --arg text "$content" '{"msgtype":"markdown", "markdown": {"title":"更新","text":$text},"at": {"isAtAll": false}}')
           echo "$param1"
           curl -X POST "https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.ACCESS_TOKEN }}" \
