@@ -1,0 +1,67 @@
+name: Check and Update Versions
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天运行一次（UTC时间00:00）
+
+jobs:
+  check-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install jq
+      run: sudo apt-get update && sudo apt-get install -y jq
+
+    - name: Get and compare versions
+      run: |
+        # 读取旧版本文件
+        if [ -f version ]; then
+          old_versions=$(cat version)
+        else
+          old_versions=""
+        fi
+
+        # 创建临时文件来存储新版本
+        new_versions_file=$(mktemp)
+
+        updated=false
+
+        # 逐行读取 repos.txt
+        while IFS= read -r repo; do
+          echo "Checking latest version for $repo"
+          response=$(curl -s https://api.github.com/repos/$repo/releases/latest)
+          latest_version=$(echo "$response" | jq -r '.tag_name')
+          new_version="$repo:$latest_version"
+
+          # 将新版本写入临时文件
+          echo "$new_version" >> "$new_versions_file"
+
+          # 检查旧版本是否存在且一致
+          if ! echo "$old_versions" | grep -q "$new_version"; then
+            updated=true
+          fi
+        done < repos.txt
+
+        if [ "$updated" = true ]; then
+          # 将新版本文件保存到 version 文件
+          mv "$new_versions_file" version
+
+          # 提交并推送更改
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add version
+          git commit -m "Update version file with latest versions"
+          git push
+
+          # 发送通知到钉钉
+          content="新版本更新:\n$(cat version)"
+          param1=$(jq -n --arg text "$content" '{"msgtype":"text", "text": {"content":$text}}')
+          curl -X POST 'https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.ACCESS_TOKEN }}' \
+            -H 'Content-Type: application/json' \
+            -d "$param1"
+        else
+          echo "No updates found. Skipping push and notification."
+        fi
