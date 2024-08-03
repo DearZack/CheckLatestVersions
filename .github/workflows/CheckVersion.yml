@@ -68,7 +68,7 @@ jobs:
           git push
 
           # 发送通知到钉钉
-          content="# 新版本更新\n\n $(echo -e "$changes")"
+          content="# 新版本更新\\n\\n $(echo -e "$changes")"
           param1=$(jq -n --arg text "$content" '{"msgtype":"markdown", "markdown": {"title":"更新","text":$text},"at": {"isAtAll": false}}')
           echo "$param1"
           curl -X POST "https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.ACCESS_TOKEN }}" \
