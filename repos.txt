@@ -1,2 +1,3 @@
 alist-org/alist
 JavaNoober/BackgroundLibrary
+GopeedLab/gopeed
