@@ -66,6 +66,7 @@ jobs:
           # 发送通知到钉钉
           content="新版本更新:\n$(cat version)"
           param1=$(jq -n --arg text "$content" '{"msgtype":"markdown", "markdown": {"title":"更新","text":$text},"at": {"isAtAll": false}}')
+          echo "$param1"
           curl -X POST 'https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.ACCESS_TOKEN }}' \
             -H 'Content-Type: application/json' \
             -d "$param1"
