@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - '.github/workflows/CheckVersion.yml'  # 监听文件的变动
+      - 'repos.txt'  # 监听文件的变动
   workflow_dispatch: # 手动触发工作流程
 
 jobs:
@@ -64,7 +65,7 @@ jobs:
 
           # 发送通知到钉钉
           content="新版本更新:\n$(cat version)"
-          param1=$(jq -n --arg text "$content" '{"msgtype":"text", "text": {"content":$text}}')
+          param1=$(jq -n --arg text "$content" '{"msgtype":"markdown", "markdown": {"title":"更新","text":$text},"at": {"isAtAll": false}}')
           curl -X POST 'https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.ACCESS_TOKEN }}' \
             -H 'Content-Type: application/json' \
             -d "$param1"
