@@ -3,3 +3,6 @@ GopeedLab/gopeed
 siyuan-note/siyuan
 hiddify/hiddify-next
 localsend/localsend
+gkd-kit/gkd
+syncthing/syncthing
+syncthing/syncthing-android
