@@ -42,7 +42,7 @@ jobs:
         while IFS= read -r repo; do
           echo "Checking latest version for $repo"
           response=$(curl -s https://api.github.com/repos/$repo/releases/latest)
-          echo response
+          echo "$response"
           latest_version=$(echo "$response" | jq -r '.tag_name')
           release_url=$(echo "$response" | jq -r '.html_url')
           new_version="$repo:$latest_version"
