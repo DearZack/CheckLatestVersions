@@ -7,3 +7,4 @@ gkd-kit/gkd
 syncthing/syncthing
 syncthing/syncthing-android
 cloud-fs/cloud-fs.github.io
+AttemptD/AfuseKt-release
