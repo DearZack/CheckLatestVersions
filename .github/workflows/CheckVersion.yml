@@ -2,7 +2,7 @@ name: Check and Update Versions
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # 每10分钟运行一次
+    - cron: '*/20 * * * *' # 每20分钟运行一次
   push:
     paths:
       - '.github/workflows/CheckVersion.yml'  # 监听工作流程文件的变动
@@ -23,6 +23,8 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y jq
 
     - name: Get and compare versions
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         # 读取旧版本文件
         if [ -f version ]; then
@@ -41,8 +43,13 @@ jobs:
         index=1
         while IFS= read -r repo; do
           echo "Checking latest version for $repo"
-          response=$(curl -s https://api.github.com/repos/$repo/releases/latest)
-          echo "$response"
+          response=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$repo/releases/latest)
+          
+          if echo "$response" | jq -e '.message' | grep -q "API rate limit exceeded"; then
+            echo "API rate limit exceeded for $repo. Skipping..."
+            continue
+          fi
+
           latest_version=$(echo "$response" | jq -r '.tag_name')
           release_url=$(echo "$response" | jq -r '.html_url')
           new_version="$repo:$latest_version"
