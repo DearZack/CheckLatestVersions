@@ -12,3 +12,4 @@ wanghongenpin/network_proxy_flutter
 JunkFood02/Seal
 LibChecker/LibChecker
 yt-dlp/yt-dlp
+gedoor/legado
