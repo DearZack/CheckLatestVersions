@@ -13,3 +13,4 @@ JunkFood02/Seal
 LibChecker/LibChecker
 yt-dlp/yt-dlp
 gedoor/legado
+xiaoyaocz/dart_simple_live
