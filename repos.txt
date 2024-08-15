@@ -14,3 +14,4 @@ LibChecker/LibChecker
 yt-dlp/yt-dlp
 gedoor/legado
 xiaoyaocz/dart_simple_live
+FongMi/NextTV
