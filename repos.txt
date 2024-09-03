@@ -16,3 +16,4 @@ gedoor/legado
 xiaoyaocz/dart_simple_live
 FongMi/NextTV
 RikkaApps/Shizuku
+markusfisch/BinaryEye
