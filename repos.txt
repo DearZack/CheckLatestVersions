@@ -18,3 +18,4 @@ FongMi/NextTV
 RikkaApps/Shizuku
 markusfisch/BinaryEye
 PasteBar/PasteBarApp
+jing332/AListFlutter
