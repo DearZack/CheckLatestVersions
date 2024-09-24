@@ -20,3 +20,4 @@ markusfisch/BinaryEye
 PasteBar/PasteBarApp
 jing332/AListFlutter
 EcoPasteHub/EcoPaste
+heyman/heynote
