@@ -8,7 +8,7 @@ syncthing/syncthing
 syncthing/syncthing-android
 cloud-fs/cloud-fs.github.io
 AttemptD/AfuseKt-release
-wanghongenpin/network_proxy_flutter
+wanghongenpin/proxypin
 JunkFood02/Seal
 LibChecker/LibChecker
 yt-dlp/yt-dlp
