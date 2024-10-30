@@ -1,7 +1,7 @@
 alist-org/alist
 GopeedLab/gopeed
 siyuan-note/siyuan
-hiddify/hiddify-next
+hiddify/hiddify-app
 localsend/localsend
 gkd-kit/gkd
 syncthing/syncthing
