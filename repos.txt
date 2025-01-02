@@ -13,11 +13,8 @@ JunkFood02/Seal
 LibChecker/LibChecker
 yt-dlp/yt-dlp
 gedoor/legado
-xiaoyaocz/dart_simple_live
-FongMi/NextTV
+deskflow/deskflow
 RikkaApps/Shizuku
 markusfisch/BinaryEye
-PasteBar/PasteBarApp
 jing332/AListFlutter
-EcoPasteHub/EcoPaste
 heyman/heynote
