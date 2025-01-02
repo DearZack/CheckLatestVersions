@@ -1,4 +1,4 @@
-alist-org/alist
+AlistGo/alist
 GopeedLab/gopeed
 siyuan-note/siyuan
 hiddify/hiddify-app
