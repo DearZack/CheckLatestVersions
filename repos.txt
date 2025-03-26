@@ -18,3 +18,4 @@ RikkaApps/Shizuku
 markusfisch/BinaryEye
 jing332/AListFlutter
 heyman/heynote
+MetaCubeX/ClashMetaForAndroid
