@@ -1,5 +1,4 @@
 AlistGo/alist
-GopeedLab/gopeed
 siyuan-note/siyuan
 hiddify/hiddify-app
 localsend/localsend
@@ -19,3 +18,4 @@ markusfisch/BinaryEye
 jing332/AListFlutter
 heyman/heynote
 MetaCubeX/ClashMetaForAndroid
+clash-verge-rev/clash-verge-rev
