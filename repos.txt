@@ -1,11 +1,8 @@
-AlistGo/alist
 siyuan-note/siyuan
-hiddify/hiddify-app
 localsend/localsend
 gkd-kit/gkd
 syncthing/syncthing
 syncthing/syncthing-android
-cloud-fs/cloud-fs.github.io
 bitwarden/android
 wanghongenpin/proxypin
 JunkFood02/Seal
@@ -15,7 +12,5 @@ gedoor/legado
 deskflow/deskflow
 RikkaApps/Shizuku
 markusfisch/BinaryEye
-jing332/AListFlutter
-heyman/heynote
 MetaCubeX/ClashMetaForAndroid
 clash-verge-rev/clash-verge-rev
