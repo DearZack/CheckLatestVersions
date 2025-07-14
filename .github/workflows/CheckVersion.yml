@@ -86,6 +86,13 @@ jobs:
           curl -X POST "https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.ACCESS_TOKEN }}" \
             -H 'Content-Type: application/json' \
             -d "$param1"
+
+          # 发送 Server酱通知（使用 --data-urlencode 防止特殊字符问题）
+          curl -X POST https://sctapi.ftqq.com/${{ secrets.SEND_KEY }}.send \
+          -H "Content-Type: application/x-www-form-urlencoded" \
+          --data-urlencode "text=版本更新通知" \
+          --data-urlencode "desp=$changes"
+          
         else
           echo "No updates found. Skipping push and notification."
         fi
