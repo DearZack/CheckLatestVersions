@@ -96,3 +96,5 @@ jobs:
         else
           echo "No updates found. Skipping push and notification."
         fi
+
+        curl https://9650.push.ft07.com/send/${{ secrets.SEND_KEY }}.send\?title\=2\&desp\=3
