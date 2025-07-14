@@ -14,3 +14,4 @@ RikkaApps/Shizuku
 markusfisch/BinaryEye
 MetaCubeX/ClashMetaForAndroid
 clash-verge-rev/clash-verge-rev
+hiddify/hiddify-app
