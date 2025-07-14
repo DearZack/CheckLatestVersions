@@ -92,9 +92,12 @@ jobs:
           -H "Content-Type: application/x-www-form-urlencoded" \
           --data-urlencode "text=版本更新通知" \
           --data-urlencode "desp=$changes"
+
+          curl -X POST https://sctapi.ftqq.com/${{ secrets.SEND_KEY_WX }}.send \
+          -H "Content-Type: application/x-www-form-urlencoded" \
+          --data-urlencode "text=版本更新通知" \
+          --data-urlencode "desp=$changes"
           
         else
           echo "No updates found. Skipping push and notification."
         fi
-
-        curl https://9650.push.ft07.com/send/${{ secrets.SEND_KEY }}.send\?title\=2\&desp\=3
