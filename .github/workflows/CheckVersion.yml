@@ -4,7 +4,7 @@ on:
   schedule:
     #- cron: '*/20 * * * *' # 每20分钟运行一次
     #- cron: '0 * * * *' # 每小时运行一次
-    - cron: '0 9-23 * * *' #  半夜不运行
+    - cron: '0 1-15 * * *' #  半夜不运行【服务器是 UTC 时间，这样实际对应北京时间的 9-23】
   push:
     paths:
       - '.github/workflows/CheckVersion.yml'  # 监听工作流程文件的变动
