@@ -17,3 +17,4 @@ clash-verge-rev/clash-verge-rev
 hiddify/hiddify-app
 Nain57/Smart-AutoClicker
 bestruirui/octopus
+farion1231/cc-switch
