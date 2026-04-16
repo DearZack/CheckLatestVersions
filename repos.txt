@@ -18,3 +18,4 @@ hiddify/hiddify-app
 Nain57/Smart-AutoClicker
 bestruirui/octopus
 farion1231/cc-switch
+DetachHead/rebased
