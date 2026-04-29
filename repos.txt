@@ -19,3 +19,4 @@ Nain57/Smart-AutoClicker
 bestruirui/octopus
 farion1231/cc-switch
 DetachHead/rebased
+Octane0411/open-vibe-island
