@@ -8,7 +8,6 @@ wanghongenpin/proxypin
 JunkFood02/Seal
 LibChecker/LibChecker
 yt-dlp/yt-dlp
-gedoor/legado
 deskflow/deskflow
 RikkaApps/Shizuku
 markusfisch/BinaryEye
