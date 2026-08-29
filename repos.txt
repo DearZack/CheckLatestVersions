@@ -20,3 +20,4 @@ farion1231/cc-switch
 DetachHead/rebased
 Octane0411/open-vibe-island
 DearZack/BinaryEye
+ccusage/ccusage
