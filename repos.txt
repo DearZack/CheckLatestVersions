@@ -22,3 +22,4 @@ Octane0411/open-vibe-island
 DearZack/BinaryEye
 ccusage/ccusage
 anilbeesetti/nextplayer
+l0ng-ai/openidea
